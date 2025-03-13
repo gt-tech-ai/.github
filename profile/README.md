@@ -1,6 +1,6 @@
 # Tech AI at Georgia Tech
 
-## Welcome to Tech AI
+## Welcome
 Tech AI is the AI hub at Georgia Tech, dedicated to transforming cutting-edge AI research into practical solutions that address real-world challenges. Our mission is to drive innovation, cultivate future AI talent, and apply AI expertise across engineering, science, education, and policy.
 
 ## About This Organization
