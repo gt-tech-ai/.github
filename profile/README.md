@@ -22,5 +22,5 @@ We focus on AI applications in:
 
 ## Contact Us
 For more information, visit our official website or reach out to us:
-[Contact](https://ai.gatech.edu/contact-us)  
+[Contact](https://tech.ai.gatech.edu/contact-us)  
 
