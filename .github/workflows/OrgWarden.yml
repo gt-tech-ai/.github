@@ -1,4 +1,4 @@
-name: Auto Audit
+name: OrgWarden
 
 on:
   schedule:
@@ -6,27 +6,10 @@ on:
   workflow_dispatch: # enables manual trigger
 
 jobs:
-  Auto-Audit:
+  Run-OrgWarden:
     runs-on: ubuntu-latest
     steps:
-        # Setup OrgWarden locally
-      - name: Checkout OrgWarden
-        uses: actions/checkout@v4
+      - uses: gt-tech-ai/OrgWarden@v0
         with:
-          repository: gt-tech-ai/OrgWarden
-
-      - name: Setup uv
-        uses: astral-sh/setup-uv@v5
-
-      - name: Install Dependencies
-        run: uv sync --frozen
-
-        # Audit gt-tech-ai with OrgWarden
-        # See https://github.com/gt-tech-ai/OrgWarden for help setting up a PAT
-        # and configuring repository-specific audit settings
-      - name: Run OrgWarden Audit
-        run: |
-          uv run orgwarden audit https://github.com/gt-tech-ai \
-          --gh-pat ${{ secrets.ORG_WARDEN_AUDIT_PAT }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          org-url: https://github.com/gt-tech-ai
+          github-pat: ${{ secrets.ORG_WARDEN_AUDIT_PAT }}
