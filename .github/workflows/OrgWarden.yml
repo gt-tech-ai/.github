@@ -2,14 +2,14 @@ name: OrgWarden
 
 on:
   schedule:
-    - cron: '14 0 * * *' # run daily at 10:00 am Eastern
+    - cron: '30 13 * * *' # run daily at 9:30 am EST
   workflow_dispatch: # enables manual trigger
 
 jobs:
   Run-OrgWarden:
     runs-on: ubuntu-latest
     steps:
-      - uses: gt-tech-ai/OrgWarden@v0
+      - uses: gt-tech-ai/OrgWarden@action-v0
         with:
           org-url: https://github.com/gt-tech-ai
           github-pat: ${{ secrets.ORG_WARDEN_AUDIT_PAT }}
