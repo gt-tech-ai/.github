@@ -9,7 +9,21 @@ jobs:
   Run-OrgWarden:
     runs-on: ubuntu-latest
     steps:
-      - uses: gt-tech-ai/OrgWarden@action-v0
+      - name: Run OrgWarden
+        uses: gt-tech-ai/OrgWarden@action-v0
         with:
           org-url: https://github.com/gt-tech-ai
           github-pat: ${{ secrets.ORG_WARDEN_AUDIT_PAT }}
+
+      - name: Trigger Failure Notification
+        # If OrgWarden failed a scheduled run
+        if: ${{ failure() && github.event_name == 'schedule' }}
+        # Send a work_dispatch event to OrgWarden-Notification.yml
+        run: |
+          gh api --method POST /repos/${{ github.repository }}/actions/workflows/OrgWarden-Notification.yml/dispatches \
+          -H "Accept: application/vnd.github+json" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          -f "ref=main" \
+          -f "inputs[run-url]=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
