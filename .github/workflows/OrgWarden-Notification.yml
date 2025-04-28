@@ -1,0 +1,18 @@
+name: OrgWarden Failed
+
+on:
+  workflow_dispatch:
+    inputs:
+      run-url:
+        type: string
+        description: URL of the failing OrgWarden run.
+        required: true
+
+jobs:
+  Trigger-Notification:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "OrgWarden Failed!"
+          echo "View workflow logs at ${{ inputs.run-url }}"
+          exit 1
