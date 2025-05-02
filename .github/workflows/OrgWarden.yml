@@ -14,6 +14,10 @@ jobs:
         with:
           org-url: https://github.com/gt-tech-ai
           github-pat: ${{ secrets.ORG_WARDEN_AUDIT_PAT }}
+          included-private-repos: asset-migration-map
+          repository-audit-settings: >
+            "asset-migration-map: --GitHub-License-value '' --GitHub-Private-true"
+
 
       - name: Trigger Failure Notification
         # If OrgWarden failed a scheduled run
