@@ -10,13 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run OrgWarden
-        uses: gt-tech-ai/OrgWarden@action-v0
+        uses: gt-tech-ai/OrgWarden@fix/action-command-parsing
+        # uses: gt-tech-ai/OrgWarden@action-v0
         with:
           org-url: https://github.com/gt-tech-ai
           github-pat: ${{ secrets.ORG_WARDEN_AUDIT_PAT }}
           included-private-repos: asset-migration-map
           repository-audit-settings: >
-            "asset-migration-map: --GitHub-License-value '' --GitHub-Private-true"
+            '"asset-migration-map: --GitHub-License-value '''' --GitHub-Private-true"'
 
 
       - name: Trigger Failure Notification
