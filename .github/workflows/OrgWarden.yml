@@ -14,9 +14,10 @@ jobs:
         with:
           org-url: https://github.com/gt-tech-ai
           github-pat: ${{ secrets.ORG_WARDEN_AUDIT_PAT }}
-          included-private-repos: asset-migration-map
+          included-private-repos: asset-migration-map adaptable-digital-twin-platform
           repository-audit-settings: >
             "asset-migration-map: --GitHub-License-value '' --GitHub-Private-true"
+            "adaptable-digital-twin-platform: --GitHub-License-value '' --GitHub-Private-true"
 
 
       - name: Trigger Failure Notification
