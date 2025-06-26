@@ -1,4 +1,4 @@
-name: OrgWarden
+name: OrgWarden - Tech AI
 
 on:
   schedule:
@@ -14,10 +14,10 @@ jobs:
         with:
           org-url: https://github.com/gt-tech-ai
           github-pat: ${{ secrets.ORG_WARDEN_AUDIT_PAT }}
-          included-private-repos: asset-migration-map adaptable-digital-twin-platform
+          included-private-repos: asset-migration-map digital-twin-visualization-platform
           repository-audit-settings: >
             "asset-migration-map: --GitHub-License-value '' --GitHub-Private-true"
-            "adaptable-digital-twin-platform: --GitHub-License-value '' --GitHub-Private-true"
+            "digital-twin-visualization-platform: --GitHub-License-value '' --GitHub-Private-true"
 
 
       - name: Trigger Failure Notification
