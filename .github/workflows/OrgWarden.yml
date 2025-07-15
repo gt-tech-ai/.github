@@ -14,10 +14,12 @@ jobs:
         with:
           org-url: https://github.com/gt-tech-ai
           github-pat: ${{ secrets.ORG_WARDEN_AUDIT_PAT }}
-          included-private-repos: asset-migration-map digital-twin-visualization-platform
+          included-private-repos: >
+            digital-twin-visualization-platform
+            armada
           repository-audit-settings: >
-            "asset-migration-map: --GitHub-License-value '' --GitHub-Private-true"
-            "digital-twin-visualization-platform: --GitHub-License-value '' --GitHub-Private-true"
+            "digital-twin-visualization-platform: --GitHub-Private-true --GitHub-License-value '' --GitHubCommunityStandards-LicenseFile-unrequired"
+            "armada: --GitHub-Private-true --GitHub-License-value '' --GitHubCommunityStandards-LicenseFile-unrequired"
 
 
       - name: Trigger Failure Notification
